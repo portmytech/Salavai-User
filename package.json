@@ -1,8 +1,8 @@
 {
-  "name": "Laundry",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "Salavai",
+  "version": "1.0.0",
+  "author": "Portmytech",
+  "homepage": "http://portmytech.com/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",

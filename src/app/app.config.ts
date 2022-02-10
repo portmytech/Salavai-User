@@ -33,15 +33,15 @@ export interface AppConfig {
 }
 
 export const BaseAppConfig: AppConfig = {
-  appName: "YourAppName",
-  apiBase: "https://yourapibase.com/",
-  consumerKey: "ck_YOUR_WOOCOMMERE_CONSUMER_KEY",
-  consumerSecret: "ck_YOUR_WOOCOMMERE_CONSUMER_SECRET",
-  adminUsername: "",
-  adminPassword: "",
-  googleApiKey: "YourGoogleApiKey",
-  oneSignalAppId: "YourOneSignalAppId",
-  oneSignalGPSenderId: "",
+  appName: "Salavai",
+  apiBase: "https://salavai.in/",
+  consumerKey: "ck_3629a8c783789e4ab628eb2edaea1f7ede36915a",
+  consumerSecret: "cs_157d8f9dcc3e8bb7dac00ca7e8480002eddbf7a7",
+  adminUsername: "salavai",
+  adminPassword: "Portmytech@2",
+  googleApiKey: "AIzaSyD9RV-GIK711UAGnfTxI9InW0HcdU4MkhU",
+  oneSignalAppId: "3f82f3f9-54cb-41b9-8105-9fa9e5fa7482",
+  oneSignalGPSenderId: "799007738070",
   paypalSandbox: "",
   paypalProduction: "",
   payuSalt: "YourPayUSalt",
@@ -83,12 +83,12 @@ export const BaseAppConfig: AppConfig = {
   }],
   demoMode: false,
   firebaseConfig: {
-    webApplicationId: "",
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: ""
+    webApplicationId: "1:799007738070:web:d10705366a4f7491c36177",
+    apiKey: "AIzaSyBQWDty_s9mC_6XBlKJowa3QpJhalfDGnU",
+    authDomain: "indian-film-tv-a3727.firebaseapp.com",
+    databaseURL: "https://indian-film-tv-a3727-default-rtdb.firebaseio.com/",
+    projectId: "indian-film-tv-a3727",
+    storageBucket: "indian-film-tv-a3727.appspot.com",
+    measurementId: "G-VVKLX0SHB8"
   }
 };
