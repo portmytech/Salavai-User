@@ -1,0 +1,85 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"payment" | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-light">
+	<p padding-left padding-right class="heading animate__animated animate__fadeInUp">{{"select_method" | translate}}
+	</p>
+
+	<ion-list no-lines radio-group [(ngModel)]="selectedPaymentGatewayId">
+		<ion-item class="animate__animated animate__fadeInUp" *ngFor="let item of paymentGateways">
+			<ion-radio value="{{item.id}}" (ionSelect)="paymentMethod(item)" item-start></ion-radio>
+			<ion-label>
+				<h2 [innerHTML]="item.title"></h2>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+
+
+	<ion-card *ngIf="selectedPaymentGateway && selectedPaymentGateway.id.includes('stripe')">
+		<div class="card_header">
+			<h2>{{'card_info' | translate}}</h2>
+		</div>
+
+		<div class="form">
+			<ion-list>
+				<ion-item class="animate__animated animate__fadeInUp">
+					<ion-input type="number" placeholder="{{'card_number' | translate}}" [(ngModel)]="cardInfo.number">
+					</ion-input>
+				</ion-item>
+				<ion-item class="animate__animated animate__fadeInUp">
+					<ion-input type="text" placeholder="{{'card_name' | translate}}" [(ngModel)]="cardInfo.name">
+					</ion-input>
+				</ion-item>
+				<ion-row class="animate__animated animate__fadeInUp">
+					<ion-col col-4 class="animate__animated animate__fadeInUp">
+						<div class="d-flex mr-5">
+							<ion-item>
+								<ion-input type="number" placeholder="{{'card_month' | translate}}"
+									[(ngModel)]="cardInfo.expMonth">
+								</ion-input>
+							</ion-item>
+						</div>
+					</ion-col>
+
+					<ion-col col-4 class="animate__animated animate__fadeInUp">
+						<ion-item>
+							<ion-input type="number" placeholder="{{'card_year' | translate}}"
+								[(ngModel)]="cardInfo.expYear">
+							</ion-input>
+						</ion-item>
+					</ion-col>
+
+					<ion-col col-4 class="animate__animated animate__fadeInUp">
+						<ion-item>
+							<ion-input type="number" placeholder="{{'card_cvv' | translate}}"
+								[(ngModel)]="cardInfo.cvc">
+							</ion-input>
+						</ion-item>
+					</ion-col>
+				</ion-row>
+
+				<ion-item class="animate__animated animate__fadeInUp" *ngIf="paymentResponse && paymentResponse.length">
+					<ion-label text-right>{{paymentResponse}}</ion-label>
+				</ion-item>
+			</ion-list>
+		</div>
+	</ion-card>
+</ion-content>
+<ion-footer no-border class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+	<div class="fixed-bootom" (click)="placeOrder()">
+		<ion-row>
+			<ion-col class="cost" col-8>
+				{{"amount_payable" | translate}}
+				<span [innerHTML]="totalToShow"></span>
+			</ion-col>
+			<ion-col class="next">
+				{{"confirm_pay" | translate}}
+				<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+			</ion-col>
+		</ion-row>
+	</div>
+</ion-footer>

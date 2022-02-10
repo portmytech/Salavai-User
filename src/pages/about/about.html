@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{"faq" | translate}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="settings" padding-left padding-right padding-top>
+        <div class="logo animate__animated animate__zoomIn" style="--animate-duration: .3s;" text-center>
+            <img src="assets/imgs/logo.png">
+        </div>
+        <h2 class="animate__animated animate__fadeInUp">{{"faq" | translate}}</h2>
+        <p class="animate__animated animate__fadeInUp" [innerHTML]="settings.laundry_appconfig_faq"></p>
+    </div>
+    
+    <div *ngIf="categoriesAll && categoriesAll.length" class="services" padding-top padding-bottom>
+        <p padding-left padding-right>{{"our_service" | translate}}</p>
+        <ion-scroll scrollX="true">
+            <div class="item_box animate__animated animate__zoomIn" *ngFor="let cat of categoriesAll" (click)="selectclothes(cat)">
+                <div class="img_box center_img">
+                    <img *ngIf="cat.image != null" data-src="{{cat.image.src}}" class="crop_img">
+                    <img *ngIf="cat.image == null" src="assets/imgs/logo.png" class="crop_img">
+                </div>
+                <p [innerHTML]="cat.name"></p>
+            </div>
+        </ion-scroll>
+    </div>
+</ion-content>

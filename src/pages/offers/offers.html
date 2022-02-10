@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"offers" | translate}} <span text-end>{{"copy_code" | translate}}</span></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<div class="empty-view animate__animated animate__zoomInUp" style="--animate-duration: .2s;" *ngIf="!loading && !coupons.length">
+		<div style="text-align:center">
+			<img src="assets/imgs/empty_coupon.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">{{"empty_text_offers" | translate}}</span>
+		</div>
+	</div>
+	<ion-list no-lines *ngIf="!loading && coupons.length">
+		<ion-item class="animate__animated animate__fadeInUp" *ngFor="let item of coupons">
+			<h2>{{item.description}}</h2>
+			<div class="copy" (click)="copyCode(item.code)">
+				<span>{{item.code}}</span>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>

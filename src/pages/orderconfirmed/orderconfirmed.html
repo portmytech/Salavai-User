@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"cart_page" | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div *ngIf="cartItems && cartItems.length" class="all-orders">
+        <p class="order-header animate__animated animate__fadeInUp">{{"ur_cloth" | translate}}</p>
+        <ion-label class="animate__animated animate__fadeInUp" *ngFor="let cartItem of cartItems">
+            <div class="item_details">
+                <ion-row>
+                    <ion-col col-5>
+                        <h2>{{cartItem.pro.name}}</h2>
+                        <h5 class="service">{{cartItem.vari.name}}</h5>
+                    </ion-col>
+                    <ion-col col-4>
+                        <h3>
+                            <ion-icon name="md-remove-circle" (click)="decrementProduct(cartItem)"></ion-icon>
+                            <!--							 <span class="quantity"> {{cartItem.quantity}}</span> -->
+                            <ion-input type="number" [(ngModel)]="cartItem.quantity" (ngModelChange)="setCartItem(cartItem)"></ion-input>
+                            <ion-icon name="md-add-circle" (click)="incrementProduct(cartItem)"></ion-icon>
+                        </h3>
+                    </ion-col>
+
+                    <ion-col col-3>
+                        <h2 style="text-align:right" [innerHTML]="cartItem.vari.sale_price_html"></h2>
+                        <h5 style="text-align:right" class="service" [innerHTML]="cartItem.vari.total_price_html"></h5>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+        </ion-label>
+    </div>
+
+    <div class="empty-view animate__animated animate__zoomIn" style="--animate-duration: .2s;" *ngIf="!cartItems || !cartItems.length">
+        <ion-icon class="material-icons">shopping_cart</ion-icon>
+        <p [innerHTML]="'cart_empty' | translate"></p>
+    </div>
+</ion-content>
+
+<ion-footer no-border>
+    <div class="fixed-bottom">
+        <p *ngIf="!coupon && (cartItems && cartItems.length)" class="promo-code animate__animated animate__fadeInUp" (click)="codePage()">
+            <ion-icon name="md-pricetag"></ion-icon>{{"have_promo" | translate}}
+        </p>
+        <p *ngIf="coupon && (cartItems && cartItems.length)" class="promo-code animate__animated animate__fadeInUp">
+            {{coupon.code}} {{'applied' | translate}}
+            <span text-right [innerHTML]="coupon_amount_html"></span>
+            <ion-icon name="md-close" class="cross-coupon" (click)="removeCoupon()"></ion-icon>
+        </p>
+        <div *ngIf="cartItems && cartItems.length" class="price-section animate__animated animate__fadeInUp">
+            <h3 class="d-flex" *ngIf="serviceHtml">{{"service_fee" | translate}} <span [innerHTML]="serviceHtml" class="end"></span></h3>
+            <ion-label class="total-amount">{{"amt_pybl" | translate}}<span [innerHTML]="total_html"></span></ion-label>
+        </div>
+        <p *ngIf="cartItems && cartItems.length" (click)="selectaddress()" text-center class="btn animate__animated animate__fadeInUp">
+            {{"confirm_order" | translate}}
+            <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+        </p>
+    </div>
+</ion-footer>

@@ -1,0 +1,52 @@
+page-managelanguage {
+    .list {
+        padding-top: 5px;
+
+        .item {
+            align-items: flex-start;
+            padding: 8px 20px 8px 20px;
+            margin-bottom: 5px;
+
+            .item-inner {
+                padding: 0 !important;
+
+                .input-wrapper {
+                    min-height: unset;
+                    align-items: center;
+                }
+            }
+
+            .label {
+                white-space: normal;
+                margin: 0;
+
+                h3 {
+                    font-size: 2rem;
+                    font-weight: 600;
+
+                    ion-icon {
+                        min-width: 42px;
+                        font-size: 1.95rem;
+                        color: #797979;
+                        text-align: end;
+                    }
+                }
+
+
+            }
+
+        }
+    }
+
+    .footer {
+        .button {
+            &.btn {
+                height: 53px;
+                // font-size: 1.9rem;
+                // background: $theme-color_green;
+                font-size: 1.85rem;
+
+            }
+        }
+    }
+}

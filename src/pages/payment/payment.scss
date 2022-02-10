@@ -1,0 +1,128 @@
+page-payment {
+    .heading {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 20px 0;
+    }
+
+    .list {
+        margin: 0;
+        .item {
+            padding: 12px 17px;
+            margin-bottom: 5px;
+
+            .radio {
+                margin: 0 !important;
+                margin-right: 20px !important;
+            }
+
+            .item-inner {
+                padding: 0;
+
+                .label {
+                    margin: 0;
+
+                    h2 {
+                        margin: 0;
+                        color: #000;
+                        font-weight: 600;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .fixed-bootom {
+        position: unset;
+        bottom: 0;
+        background-color: $bg-theme;
+        color: $white;
+        width: 100%;
+        padding: 1rem;
+        height: 50px;
+
+        .row {
+            align-items: center;
+
+            .col {
+                font-size: 1.55rem;
+            }
+
+            .next {
+                text-align: end;
+                font-weight: 400;
+                font-size: 1.85rem;
+
+                ion-icon {
+                    font-size: 1.6rem;
+                    position: relative;
+                    top: 1px;
+                    min-width: 20px;
+                }
+            }
+        }
+    }
+}
+
+.card {
+    margin: 0 auto;
+    width: calc(100% - 10px);
+    box-shadow: none !important;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .card_header {
+        background-color: $bg-theme;
+        padding: 13px 14px;
+
+        h2 {
+            margin: 0;
+            color: $white;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+
+    .form {
+        .list {
+            padding: 5px !important;
+            padding-bottom: 0 !important;
+
+            .item {
+                padding: 0;
+                margin: 0 !important;
+                border: 1px solid #b0b0b0 !important;
+                margin-bottom: 5px !important;
+                border-radius: 5px;
+                min-height: unset;
+
+                .item-inner {
+                    margin: 0 !important;
+                    padding: 0;
+
+                    .input-wrapper {
+                        ion-input {
+                            font-size: 1.2rem;
+                            font-weight: 500;
+
+                            .text-input {
+                                margin: 0;
+                                width: 100%;
+                                padding: 13px 8px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .row {
+                margin: 0 -2px;
+
+                .col {
+                    padding: 0 2px;
+                }
+            }
+        }
+    }
+}

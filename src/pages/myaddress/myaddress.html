@@ -1,0 +1,42 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{'my_address' | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<div class="empty-view animate__animated animate__zoomIn" style="--animate-duration: .2s;" *ngIf="!addresses || !addresses.length">
+		<div style="text-align:center">
+			<img src="assets/imgs/location_active.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold; display: block;">{{"address_empty" | translate}}</span>
+		</div>
+	</div>
+
+	<ion-list no-lines radio-group [(ngModel)]="selectedAddressId" (ionChange)="onAddressChangeHandler($event)">
+		<h2 class="animate__animated animate__fadeInUp" *ngIf="addresses && addresses.length">{{'saved_addresses' | translate}}</h2>
+		<ion-item class="animate__animated animate__fadeInUp" *ngFor="let address of addresses">
+			<ion-label>
+				<div class="img_box">
+					<img *ngIf="address.type == 1" src="assets/imgs/ic_home_active.png">
+					<img *ngIf="address.type == 1" src="assets/imgs/ic_home.png">
+					<h3 *ngIf="address.type == 1">{{"address_type_home" | translate}}</h3>
+					<img *ngIf="address.type == 2" src="assets/imgs/ic_office.png">
+					<img *ngIf="address.type == 2" src="assets/imgs/ic_office_active.png">
+					<h3 *ngIf="address.type == 2">{{"address_type_office" | translate}}</h3>
+					<img *ngIf="address.type == 3" src="assets/imgs/location.png">
+					<img *ngIf="address.type == 3" src="assets/imgs/ic_otherlocatio_active.png">
+					<h3 *ngIf="address.type == 3">{{"address_type_other" | translate}}</h3>
+				</div>
+				<p>{{address.address_1}}</p>
+			</ion-label>
+			<ion-radio value="{{address.id}}"></ion-radio>
+		</ion-item>
+	</ion-list>
+
+</ion-content>
+<ion-footer no-border>
+	<button ion-button block outline (click)="addressNew()" class="bg-white add_new_location animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+		<ion-icon name="md-add" icon-start></ion-icon>
+		{{'add_new_location' | translate}}
+	</button>
+</ion-footer>

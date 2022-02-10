@@ -1,0 +1,271 @@
+page-selectdate {
+	.select-tab {
+		padding: 0;
+
+		&.toolbar-ios {
+			min-height: 35px;
+		}
+
+		&.toolbar-wp {
+			min-height: 54px;
+		}
+
+		.toolbar-content {
+			margin-bottom: -14px;
+		}
+
+		.segment-ios {
+			height: 35px;
+
+			ion-segment-button {
+				height: 35px;
+			}
+		}
+
+		.segment-wp {
+			margin-bottom: auto;
+			margin-right: auto;
+			width: 270px !important;
+
+			ion-segment-button {
+				width: 50% !important;
+			}
+		}
+
+		.segment {
+
+			.segment-button {
+				background-color: transparent !important;
+				border: none !important;
+				color: darken($text-light, 20%) !important;
+				font-weight: 500;
+				position: relative;
+				border: none !important;
+				border-radius: 0 !important;
+				position: relative;
+				opacity:1;
+				display: flex;
+				align-items: center;
+				justify-content: center !important;
+				padding-bottom: 10px;
+				text-transform: capitalize;
+				font-size: 1.55rem;
+
+				&.segment-activated {
+					color: darken($text-dark , 100%)!important;
+					border-bottom-color: $bg-theme !important;
+					opacity: 1;
+
+					&::after {
+						content: "";
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						margin: auto;
+						width: 105px;
+						height: 3px;
+						background: darken($bg-theme, 10%) !important;
+					}
+				}
+
+				span {
+					margin: 0;
+					background-position: center !important;
+					background-size: cover !important;
+					background-repeat: no-repeat !important;
+					width: 30px;
+					height: 23px;
+					margin-right: 10px;
+
+					&.pick {
+						background-image: url(../assets/imgs/pick.png);
+					}
+
+					&.delivery {
+						background-image: url(../assets/imgs/delivery.png);
+					}
+				}
+
+				&.segment-activated {
+					span {
+						&.pick {
+							background-image: url(../assets/imgs/pick_active.png);
+						}
+
+						&.delivery {
+							background-image: url(../assets/imgs/delivery_active.png);
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	.select-day {
+		background-color: $white;
+		margin-top: 8px;
+		padding: 20px 0px 25px;
+		margin-bottom: 3px;
+
+		.heading {
+			margin-top: 0;
+			margin-bottom: 20px;
+			font-size: 1.5rem;
+			padding: 0 20px;
+			font-weight: 500;
+		}
+
+		.scroll-item {
+			display: inline-block;
+			width: auto;
+			min-width: 145px;
+			text-align: center;
+			margin: 0 6px;
+
+			.date-box {
+				border: 1px solid #d2d2d2;
+				font-size: 1rem;
+				font-weight: 600;
+				padding: 10px 20px;
+				border-radius: 5px;
+				width: auto;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				width: 100%;
+				position: relative;
+				transition: all 0.3s;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					margin: auto;
+					border-radius: 5px;
+					width: 0%;
+					height: 0%;
+					background: $bg-theme;
+					z-index: -1;
+					transition: all 0.3s;
+				}
+
+				&.active {
+					border: 1px solid $bg-theme;
+					color: $white;
+					transition: all 0.3s;
+
+					&::before {
+						width: 100%;
+						height: 100%;
+						transition: all 0.3s;
+					}
+				}
+			}
+
+			&:first-child {
+				margin-left: 17px;
+			}
+
+			&:last-child {
+				margin-right: 17px;
+			}
+		}
+	}
+
+	.select-time {
+		background-color: $white;
+		padding: 20px 0 25px;
+		margin-bottom: 60px;
+
+		.heading {
+			margin-top: 0;
+			margin-bottom: 20px;
+			font-size: 1.5rem;
+			font-weight: 500;
+			padding: 0 16px;
+		}
+
+		.row {
+			padding: 0 10px;
+		}
+
+		.col {
+			padding: 6px 6px !important;
+
+			h6 {
+				margin: 0;
+				font-size: 1rem;
+				font-weight: 600;
+				border: 1px solid #d2d2d2;
+				padding: 10px;
+				text-align: center;
+				border-radius: 5px;
+				position: relative;
+				overflow: hidden;
+
+				span {
+					position: relative;
+					z-index: 9999;
+					font-weight: 600;
+				}
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					margin: auto;
+					border-radius: 5px;
+					width: 0%;
+					height: 0%;
+					background: $bg-theme;
+					transition: all 0.3s;
+				}
+
+				&.active {
+					border: 1px solid $bg-theme;
+					color: $white;
+
+					&::before {
+						width: 100%;
+						height: 100%;
+						transition: all 0.3s;
+					}
+				}
+			}
+		}
+	}
+
+	.fixed-bootom {
+		position: fixed;
+		bottom: 0;
+		background-color: $bg-theme;
+		color: $white;
+		width: 100%;
+		padding: 1.15rem 1rem;
+		height: 50px;
+
+		.row {
+			display: flex;
+			align-items: center;
+
+			.next {
+				font-weight: 400;
+				font-size: 1.85rem;
+				text-align: center;
+
+				ion-icon {
+					margin-left: 1rem;
+					margin-right: 0.5rem;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

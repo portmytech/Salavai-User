@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "799007738070",
+    "project_id": "indian-film-tv-a3727",
+    "storage_bucket": "indian-film-tv-a3727.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799007738070:android:44fa9d12de44320bc36177",
+        "android_client_info": {
+          "package_name": "com.pth.salavai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799007738070-87trbdsfqhg2dvjlls6ggkcfhub4mlno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pth.salavai",
+            "certificate_hash": "d144691efa2e45f2994388778056190d42eb67bd"
+          }
+        },
+        {
+          "client_id": "799007738070-hkfujefi6tdl5gsj0usemc3mfiks1p1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9RV-GIK711UAGnfTxI9InW0HcdU4MkhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799007738070-hkfujefi6tdl5gsj0usemc3mfiks1p1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799007738070:android:25a43b98c4baa78ac36177",
+        "android_client_info": {
+          "package_name": "com.pth.salavaidelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799007738070-0flgo1u17sd565r887vng03b2iprt8a5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pth.salavaidelivery",
+            "certificate_hash": "d144691efa2e45f2994388778056190d42eb67bd"
+          }
+        },
+        {
+          "client_id": "799007738070-hkfujefi6tdl5gsj0usemc3mfiks1p1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9RV-GIK711UAGnfTxI9InW0HcdU4MkhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799007738070-hkfujefi6tdl5gsj0usemc3mfiks1p1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

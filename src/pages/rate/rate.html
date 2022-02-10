@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"rate_order" | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="status" padding text-center>
+        <img src="assets/imgs/delivered.png">
+        <p>{{"hey" | translate}} Sam,<br>{{"order_delivered" | translate}}</p>
+    </div>
+    <div class="rate" padding text-center>
+        <p>{{"rate_last_experience" | translate}}</p>
+        <div class="stars">
+            <ion-icon name="md-star"></ion-icon>
+            <ion-icon name="md-star"></ion-icon>
+            <ion-icon name="md-star"></ion-icon>
+            <ion-icon name="md-star-half"></ion-icon>
+            <ion-icon name="md-star-outline"></ion-icon>
+        </div>
+        <ion-input type="text" placeholder="Share your experiece in words"></ion-input>
+        <button ion-button full style="height: 50px" (click)="tabs()">{{"submit_review" | translate}}</button>
+    </div>
+</ion-content>

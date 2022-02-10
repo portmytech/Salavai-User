@@ -1,0 +1,33 @@
+page-profile {
+    .profile_img {
+        background: lighten($text-light, 14%);
+        width: 85px;
+        height: 85px;
+        margin: 25px auto;
+        border-radius: 50%;
+
+        ion-icon {
+            color: $white-color;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 2.7rem;
+            line-height: 85px;
+        }
+    }
+
+
+    .form .item .item-inner ion-input .text-input {
+        font-weight: 600;
+    }
+
+    .footer {
+        .button {
+            height: 53px;
+            font-size: 1.85rem;
+            margin: 0;
+        }
+    }
+}

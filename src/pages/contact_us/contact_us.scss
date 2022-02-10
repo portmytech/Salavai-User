@@ -1,0 +1,36 @@
+page-contact_us {
+  .banner {
+    max-width: 367px;
+    margin: 27px auto 55px auto;
+  }
+
+  .container {
+    width: calc(100% - 70px);
+    margin: 0 auto;
+
+    h1 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 2.8rem;
+      padding-bottom: 17px;
+      color: $text-dark;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: $text-dark;
+    }
+  }
+
+  ion-footer {
+    .button {
+      margin: 0;
+      min-height: 50px;
+      font-size: 1.7rem;
+      font-weight: 400;
+    }
+  }
+}

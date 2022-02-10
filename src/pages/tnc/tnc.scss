@@ -1,0 +1,31 @@
+page-tnc {
+    .logo {
+        width: 160px;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0;
+        padding-bottom: 15px;
+        padding-top: 15px;
+
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $text-dark;
+        line-height: 1.5;
+        margin: 0;
+        padding-bottom: 15px;
+
+
+    }
+
+}

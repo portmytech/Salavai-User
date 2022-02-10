@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"profile" | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="profile_img center_img animate__animated animate__zoomIn" style="--animate-duration: .3s;" (click)="openAction()">
+        <img *ngIf="user && user.avatar_url && user.avatar_url" [src]="user.avatar_url" class="crop_img">
+        <ion-icon *ngIf="!(user && user.avatar_url && user.avatar_url)" class="zmdi zmdi-camera"></ion-icon>
+    </div>
+
+    <ion-list no-lines class="form">
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-person" item-start></ion-icon>
+            <ion-label floating>{{"address_name" | translate}}</ion-label>
+            <ion-input [(ngModel)]="user.first_name"></ion-input>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-phone-portrait" item-start></ion-icon>
+            <ion-label floating>{{"phone" | translate}}</ion-label>
+            <ion-input disabled="true" [readonly]="isReadonly()" [(ngModel)]="usernameToShow"></ion-input>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-mail" item-start></ion-icon>
+            <ion-label floating>{{"email" | translate}}</ion-label>
+            <ion-input disabled="true" [readonly]="isReadonly()" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>
+
+<ion-footer no-border class="animate__animated animate__fadeInUp">
+    <button ion-button full *ngIf="user" (click)="updateInfo()">
+        {{"update" | translate}}
+    </button>
+</ion-footer>

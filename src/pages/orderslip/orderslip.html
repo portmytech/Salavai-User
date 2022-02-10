@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <p class="header">{{"order_n" | translate}} {{order.id}}<small>{{order.date_created}}</small></p>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="order-head animate__animated animate__fadeInUp">
+        <ion-row>
+            <ion-col style="max-width: 110px;" [ngSwitch]="order.status">
+                <img src="assets/imgs/confirmed.png" *ngSwitchDefault>
+                <img src="assets/imgs/inporcess.png" *ngSwitchCase="'processing'">
+                <img src="assets/imgs/dispatched.png" *ngSwitchCase="'pickedup'">
+                <img src="assets/imgs/delivered.png" *ngSwitchCase="'completed'">
+            </ion-col>
+            <ion-col>
+                <p>{{"order_status"|translate}}<strong>{{order.status_trans}}</strong></p>
+            </ion-col>
+        </ion-row>
+    </div>
+    
+    <div class="order-address animate__animated animate__fadeInUp">
+        <ion-row>
+            <ion-col col-6>
+                <p class="animate__animated animate__fadeInUp">{{"picked_time" | translate}}</p>
+                <h3 class="animate__animated animate__fadeInUp">{{order.time_pickup_formatted}}</h3>
+                <h4 class="animate__animated animate__fadeInUp">{{order.time_pickup_slot}}</h4>
+            </ion-col>
+            <ion-col col-6>
+                <p class="animate__animated animate__fadeInUp">{{"deliver_time" | translate}}</p>
+                <h3 class="animate__animated animate__fadeInUp">{{order.time_delivery_formatted}}</h3>
+                <h4 class="animate__animated animate__fadeInUp">{{order.time_delivery_slot}}</h4>
+            </ion-col>
+            <ion-col col-12>
+                <p class="animate__animated animate__fadeInUp">{{"deliver_nfo" | translate}}</p>
+                <h3 class="animate__animated animate__fadeInUp">{{order.shipping.address_1}}</h3>
+            </ion-col>
+        </ion-row>
+    </div>
+
+
+    <div class="all-orders animate__animated animate__fadeInUp">
+        <p class="order-header">{{"order_items" | translate}}</p>
+        <div>
+            <ion-label class="animate__animated animate__fadeInUp" *ngFor="let line of order.line_items">
+                <span class="items">{{line.quantity}}</span>
+                <span class="cross">x</span>
+                <span class="name" [innerHTML]="line.name"></span>
+                <span class="amount" [innerHTML]="line.total_html"></span>
+            </ion-label>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer no-border class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+    <div class="price-section">
+        <ion-label class="animate__animated animate__fadeInUp" *ngIf="order.discount_total_html && order.discount_total_html.length" class="total-amount-black d-flex">
+            {{"discount" | translate}}
+            <span [innerHTML]="order.discount_total_html" class="end"></span>
+        </ion-label>
+        <ion-label class="animate__animated animate__fadeInUp" *ngIf="serviceHtml && serviceHtml.length" class="total-amount-black d-flex">
+            {{"service_fee" | translate}}
+            <span [innerHTML]="serviceHtml" class="end"></span>
+        </ion-label>
+        <ion-label class="animate__animated animate__fadeInUp" *ngIf="order.shipping_total_html && order.shipping_total_html.length" class="total-amount-black d-flex">
+            {{"shipping_fee" | translate}}
+            <span [innerHTML]="order.shipping_total_html" class="end"></span>
+        </ion-label>
+        <ion-label class="total-amount d-flex animate__animated animate__fadeInUp">
+            {{"total_amount" | translate}}
+            <span [innerHTML]="order.total_html" class="end"></span>
+        </ion-label>
+    </div>
+</ion-footer>

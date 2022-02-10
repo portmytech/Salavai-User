@@ -1,0 +1,34 @@
+<ion-header class="bg-white">
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            {{'customer_care' | translate}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content #content class="bg-light">
+    <div class="chat_container d-flex">
+        <div *ngFor="let msg of messages" [ngClass]="(chat.myId == msg.senderId) ? 'chat_box d-flex send animate__animated animate__zoomIn' : 'chat_box d-flex received animate__animated animate__zoomIn'" style="--animate-duration: .5s;">
+            <div class="chat">
+                <h2>{{msg.body}}</h2>
+                <p>{{msg.timeDiff}}</p>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer no-border class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+    <ion-list class="" no-lines>
+        <div class="d-flex input_field">
+            <ion-item>
+                <ion-textarea type="text" rows="1" [(ngModel)]="newMessageText" placeholder="{{'type_message' | translate}}"></ion-textarea>
+            </ion-item>
+            <h3 (click)="send()" class="end">
+                <ion-icon name="md-send" text-start></ion-icon>
+            </h3>
+        </div>
+    </ion-list>
+</ion-footer>

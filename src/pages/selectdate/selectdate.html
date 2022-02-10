@@ -1,0 +1,59 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"select_datetime" | translate}}</ion-title>
+	</ion-navbar>
+	<ion-toolbar no-border-top class="select-tab">
+		<ion-segment [(ngModel)]="dnt" (ionChange)="onSegmentChange()">
+			<ion-segment-button value="pick">
+				<span class="pick"></span> {{"pickup" | translate}}
+			</ion-segment-button>
+			<ion-segment-button value="delivery">
+				<span class="delivery"></span> {{"delivery" | translate}}
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<div class="empty-view animate__animated animate__zoomIn" style="--animate-duration: .25s;" *ngIf="!times || !times.length">
+		<div style="text-align:center">
+			<img src="assets/imgs/empty_notification.png" alt="no offers" />
+			<span *ngIf="dnt == 'pick'" style="color:#9E9E9E; font-weight:bold; display: block;">
+				{{"empty_time_slots" | translate}} {{ weekDaysTrans[dates[datePickupSelectedIndex].getDay()]}}, {{dates[datePickupSelectedIndex].getDate()}} {{ monthsTrans[dates[datePickupSelectedIndex].getMonth()]}}
+			</span>
+			<span *ngIf="dnt != 'pick'" style="color:#9E9E9E; font-weight:bold; display: block;">
+				{{"empty_time_slots" | translate}} {{ weekDaysTrans[dates[dateDeliverySelectedIndex].getDay()]}}, {{dates[dateDeliverySelectedIndex].getDate()}} {{ monthsTrans[dates[dateDeliverySelectedIndex].getMonth()]}}
+			</span>
+		</div>
+	</div>
+
+	<ion-list no-lines>
+		<div *ngIf="weekDaysTrans && monthsTrans" class="select-day">
+			<p class="heading animate__animated animate__fadeInUp" style="--animate-duration: .3s;">{{selectionDateHeading}}</p>
+			<ion-scroll class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;" scrollX style="height:38px;white-space: nowrap;">
+				<div class="scroll-item animate__animated animate__zoomIn" *ngFor="let item of dates;let i=index">
+					<div class="date-box" [ngClass]="{'active':isDateSelected(i)}" (click)="selectDate(i)">
+						{{ weekDaysTrans[item.getDay()]}}, {{item.getDate()}} {{ monthsTrans[item.getMonth()]}}
+					</div>
+				</div>
+			</ion-scroll>
+		</div>
+		<div *ngIf="times && times.length" class="select-time">
+			<p class="heading animate__animated animate__fadeInUp" style="--animate-duration: .3s;">{{selectionTimeHeading}}</p>
+			<ion-row  no-padding>
+				<ion-col class="animate__animated animate__zoomIn" col-6 no-padding *ngFor="let item of times;let j=index">
+					<h6 [ngClass]="{'active':isTimeSelected(j)}" (click)="selectTime(j)"><span>{{item.time_text}}</span></h6>
+				</ion-col>
+			</ion-row>
+		</div>
+	</ion-list>
+</ion-content>
+<ion-footer class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;"> 
+	<div class="fixed-bootom" (click)="payment()">
+		<ion-row>
+			<ion-col class="next">{{"next" | translate}}
+				<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+			</ion-col>
+		</ion-row>
+	</div>
+</ion-footer>

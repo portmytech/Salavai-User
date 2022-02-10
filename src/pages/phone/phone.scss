@@ -1,0 +1,28 @@
+page-phone {
+	.button {
+		height: 50px;
+		font-size: 1.5rem;
+	}
+
+	.form {
+		margin-bottom: 35px;
+
+		.item .item-inner {
+			//            margin-left: 0px !important;
+		}
+
+		.select-icon {
+
+			//            display: none;
+			.select-icon-inner {
+				color: $black;
+				display: none;
+			}
+		}
+	}
+
+	.logo_box {
+		width: 130px;
+		margin: 0 auto;
+	}
+}

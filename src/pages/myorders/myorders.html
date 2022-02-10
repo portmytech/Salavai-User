@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"my_orders" | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<div class="empty-view animate__animated animate__zoomIn" style="--animate-duration: .3s;" *ngIf="!isLoading && (!orders || !orders.length)">
+		<div style="text-align:center">
+			<img src="assets/imgs/empty_cart.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold; display: block;">{{"empty_orders" | translate}}</span>
+		</div>
+	</div>
+	<ion-list no-lines>
+		<ion-item class="animate__animated animate__fadeInUp" *ngFor="let order of orders" (click)="orderDetail(order)">
+			<ion-avatar item-start [ngSwitch]="order.status">
+				<img src="assets/imgs/confirmed.png" *ngSwitchDefault>
+				<img src="assets/imgs/inporcess.png" *ngSwitchCase="'processing'">
+				<img src="assets/imgs/dispatched.png" *ngSwitchCase="'pickedup'">
+				<img src="assets/imgs/delivered.png" *ngSwitchCase="'completed'">
+			</ion-avatar>
+			<h2 class="d-flex">
+				<span>{{"order_n" | translate}}: {{order.id}}</span>
+				<small class="end" text-end [innerHTML]="order.total_html"></small>
+			</h2>
+			<p class="d-flex">
+				<span>{{order.status_trans}}</span>
+				<small class="end" text-end>{{order.date_created}}</small></p>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

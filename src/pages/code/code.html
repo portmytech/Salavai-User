@@ -1,0 +1,25 @@
+<ion-content class="bg-light">
+    <div class="code animate__animated animate__zoomIn" style="--animate-duration: .3s;">
+        <h2 class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+            {{"coupon_code" | translate}}
+        </h2>
+        <ion-list no-lines class="form">
+            <ion-item class="animate__animated animate__fadeInUp" style="--animate-duration: .45s;">
+                <ion-input type="text" value="" [(ngModel)]="cCode" placeholder="{{'enter_prom_code' | translate}}">
+                </ion-input>
+            </ion-item>
+        </ion-list>
+        <ion-row class="animate__animated animate__fadeInUp" style="--animate-duration: .5s;">
+            <ion-col col-6>
+                <button ion-button block clear class="bg-thime btn-round btn-text" (click)="dismiss()">
+                    {{"cancel" | translate}}
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <button ion-button block class="bg-thime btn-round btn-text" (click)="checkCode()">
+                    {{"submit" | translate}}
+                </button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

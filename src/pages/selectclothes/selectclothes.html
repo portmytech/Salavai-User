@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"select_clothes" | translate}}</ion-title>
+    </ion-navbar>
+    <ion-segment *ngIf="categoriesSub && categoriesSub.length" class="bg-green animate__animated animate__fadeInDown" style="--animate-duration: .3s;" [(ngModel)]="selectedCategoryIdx">
+        <ion-segment-button *ngFor="let cat of categoriesSub; let i = index" [value]="i" [innerHTML]="cat.name" (click)="loadProducts(i)"></ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="empty-view animate__animated animate__zoomIn" style="--animate-duration: .2s;" *ngIf="!loadingShown && (!products[selectedCategoryIdx] || !products[selectedCategoryIdx].length)">
+        <div style="text-align:center">
+            <img src="assets/imgs/empty_cart.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold; display: block;">{{"empty_products" | translate}}</span>
+        </div>
+    </div>
+    <div *ngIf="products[selectedCategoryIdx] && products[selectedCategoryIdx].length" style="margin-top: 8px;" class="cloth-list">
+        <ion-list no-lines>
+            <ion-item class="animate__animated animate__fadeInUp" *ngFor="let product of products[selectedCategoryIdx]; let i = index;">
+                <ion-avatar item-start>
+                    <img src="assets/imgs/t-shirt.jpg" *ngIf="!(product.images && product.images.length && product.images[0].src)">
+                    <img [src]="product.images[0].src" *ngIf="product.images && product.images.length && product.images[0].src">
+                </ion-avatar>
+                <ion-label>
+                    <h3>{{product.name}}</h3>
+                </ion-label>
+                <ion-select [id]="'mySelect'+i" [(ngModel)]="product.variationsSelected" [compareWith]="variationCompare" class="select-wash" cancelText="{{'cancel' | translate}}" okText="{{'okay' | translate}}" multiple="true" (ionChange)="variationChanged(product)">
+                    <ion-option *ngFor="let vari of product.variationsAvailable; let i = index" [value]="vari">
+                        {{vari.name}}
+                        <span [innerHTML]="vari.sale_price_html"></span>
+                    </ion-option>
+                </ion-select>
+                <ion-note class="modify_cart" *ngIf="product.variationsSelected && product.variationsSelected.length" item-end (click)="openVariations(i, product)">
+                    {{"modify_cart" | translate}}
+                </ion-note>
+                <ion-note *ngIf="!product.variationsSelected || !product.variationsSelected.length" item-end (click)="openVariations(i, product)">
+                    {{"add_cart" | translate}}
+                </ion-note>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</ion-content>
+
+<ion-footer class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+    <ion-toolbar>
+        <div class="fixed-bootom" (click)="reviewOrder()">
+            <ion-row>
+                <ion-col col-4 class="cost">{{"total" | translate}} <span [innerHTML]="total_html"></span> </ion-col>
+                <ion-col col-4 class="small " text-center>{{cartItems.length}} {{"items" | translate}}</ion-col>
+                <ion-col col-4 class="next" text-end>{{"next" | translate}}
+                    <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{'shipping_methods' | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<ion-list no-lines radio-group [(ngModel)]="shippingMethodId" name="case" required>
+		<h2 class="animate__animated animate__fadeInUp">{{'shipping_select' | translate}}</h2>
+		<ion-item class="animate__animated animate__fadeInUp" *ngFor="let shipping of shippingMethods">
+			<ion-radio value="{{shipping.id}}" item-start (ionSelect)="selectShipping(shipping)"></ion-radio>
+			<ion-label>
+				<h2>{{shipping.title}}</h2>
+				<p></p>
+			</ion-label>
+			<h3 text-end item-end [innerHTML]="shipping.costToShow"></h3>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer no-border class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+	<button ion-button block outline (click)="next()" class="bg-white add_new_location">
+		<!-- <ion-icon name="md-add" icon-start></ion-icon> -->
+		{{'continue' | translate}}
+	</button>
+</ion-footer>

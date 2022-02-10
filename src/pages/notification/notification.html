@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"notification" | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="empty-view">
+        <div style="text-align:center">
+            <img src="assets/imgs/notification.png" alt="no notification" />
+            <p style="color:#9E9E9E; font-weight:bold;">No notifications to show
+                <br /><span *ngIf="!user"> You're not sign in yet</span>
+            </p>
+            <button ion-button *ngIf="!user" (click)="login()">Sign in now</button>
+        </div>
+    </div>
+    <!-- <ion-list no-lines>
+    <ion-item *ngFor="let item of items">
+      <ion-avatar item-start>
+        <img [src]="item.image">
+      </ion-avatar>
+      <ion-label>
+        <h2 [innerHTML]="item.title"></h2>
+        <p [innerHTML]="item.detail"></p>
+      </ion-label>
+      <ion-note item-end [innerHTML]="item.time"></ion-note>
+    </ion-item>
+  </ion-list> -->
+</ion-content>

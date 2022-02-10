@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"tnc" | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div padding-left padding-right padding-top>
+        <div class="logo animate__animated animate__zoomIn" style="--animate-duration: .3s;" text-center>
+            <img src="assets/imgs/logo.png">
+        </div>
+
+        <h2 class="animate__animated animate__fadeInUp">{{"tnc_use" | translate}}</h2>
+        <p class="animate__animated animate__fadeInUp" [innerHTML]="settings.laundry_appconfig_terms"></p>
+    </div>
+</ion-content>

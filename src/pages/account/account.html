@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"more" | translate}}</ion-title>
+    </ion-navbar>
+
+    <div class="order-head d-flex" (click)="actionNavHeader()">
+        <div class="img_box center_img">
+            <img *ngIf="user && user.avatar_url && user.avatar_url" [src]="user.avatar_url" class="crop_img">
+            <img *ngIf="!(user && user.avatar_url && user.avatar_url)" src="assets/imgs/logo.png" class="crop_img">
+        </div>
+
+        <div class="text_box" *ngIf="user">
+            <p>{{user.first_name}}
+                <span class="d-flex">+{{user.username}}
+                    <ion-icon class="zmdi zmdi-chevron-right end" text-end></ion-icon>
+                </span>
+            </p>
+        </div>
+
+        <div class="text_box" *ngIf="!user">
+            <p>{{'hey' | translate}} {{'guest' | translate}}</p>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-list no-lines>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="myorders()" *ngIf="user">
+            <ion-icon class="zmdi zmdi-storage" text-start item-start></ion-icon>
+            {{"my_orders" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="myaddress()" *ngIf="user">
+            <ion-icon class="zmdi zmdi-pin" text-start item-start></ion-icon>
+            {{"my_address" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="about()">
+            <ion-icon class="zmdi zmdi-city-alt" text-start item-start></ion-icon>
+            {{"faq" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="contact()">
+            <ion-icon class="zmdi zmdi-email" text-start item-start></ion-icon>
+            {{"contact_us" | translate}}
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chat()">
+            <ion-icon class="zmdi zmdi-comment-more" text-start item-start></ion-icon>
+            {{"chat_with_us" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="tnc()">
+            <ion-icon class="zmdi zmdi-assignment-alert" text-start item-start></ion-icon>
+            {{"tns" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chooseLanguage()">
+            <ion-icon class="zmdi zmdi-globe" text-start item-start></ion-icon>
+            {{"change_language" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="phonenumberPage()" *ngIf="user">
+            <ion-icon class="zmdi zmdi-open-in-new" text-start item-start></ion-icon>
+            {{"logout" | translate}}
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="signin()" *ngIf="!user">
+            <ion-icon class="zmdi zmdi-open-in-new" text-start item-start></ion-icon>
+            {{"login" | translate}}
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer no-border class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+    <div class="div-logo" *ngIf="config.demoMode" (click)="developedBy()">
+        <h4 class="text-white-dev">{{'developed_by' | translate}}</h4>
+        <img class="img-logo" src="assets/imgs/VT_black_logo.png" alt="">
+    </div>
+</ion-footer>

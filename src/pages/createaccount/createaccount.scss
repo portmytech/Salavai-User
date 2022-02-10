@@ -1,0 +1,78 @@
+page-createaccount {
+	.header {
+		.toolbar-content {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			right: 0;
+
+			.title {
+				.toolbar-title {
+					text-align: center !important;
+					display: block;
+				}
+			}
+
+		}
+	}
+
+	.cam-icon {
+		width: 75px;
+		height: 75px;
+		font-size: 2.6rem;
+		background-color: $bg-light;
+		text-align: center;
+		line-height: 75px;
+		color: $white;
+		border-radius: 50%;
+		display: block;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+
+
+
+	.form {
+		margin-bottom: 35px;
+
+		.item .item-inner {
+			//            margin-left: 0px !important;
+		}
+
+		.select-icon {
+
+			//            display: none;
+			.select-icon-inner {
+				color: $black;
+				display: none;
+			}
+		}
+	}
+
+	.profile_img {
+		background: lighten($text-light, 14%);
+		width: 85px;
+		height: 85px;
+		margin: 25px auto;
+		border-radius: 50%;
+
+		ion-icon {
+			color: $white-color;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-size: 2.7rem;
+			line-height: 85px;
+		}
+	}
+
+	.footer {
+		padding-bottom: 8px;
+		.button {
+			height: 50px;
+			font-size: 1.45rem;
+		}
+	}
+}

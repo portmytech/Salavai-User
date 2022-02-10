@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title text-center>{{config.appName}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding-top padding-left padding-right>
+    <div class="logo_box">
+        <img src="assets/imgs/logo.png">
+    </div>
+    <p text-center>{{'enter_phone_text' | translate}} <br />{{'enter_phone_text1' | translate}}</p>
+    <ion-list no-lines class="form">
+        <ion-item>
+            <ion-icon name="md-globe" item-start></ion-icon>
+            <ion-label floating>{{'address_country' | translate}}</ion-label>
+            <ion-select [(ngModel)]="countryCode" cancelText="{{'cancel' | translate}}" okText="{{'okay' | translate}}" multiple="false" (ionChange)="changeHint()">
+                <ion-option [value]="country.callingCodes[0]" *ngFor="let country of countries">{{country.name}}
+                </ion-option>
+            </ion-select>
+
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="md-phone-portrait" item-start></ion-icon>
+            <ion-label floating>{{phone_hint}}</ion-label>
+            <ion-input type="tel" [(ngModel)]="registerRequest.username">
+            </ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block class="bg-thime btn-round btn-text" (click)="createUser()">
+        {{'Continue' | translate}}
+    </button>
+</ion-content>

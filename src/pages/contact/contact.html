@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{"contact" | translate}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-list no-lines>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <p>{{"call_us" | translate}}</p>
+            <h2>{{settings.laundry_appconfig_mobilenumber}}</h2>
+            <ion-avatar item-end (click)="dial()">
+                <ion-icon name="md-call"></ion-icon>
+            </ion-avatar>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <p>{{"email_us" | translate}}</p>
+            <h2>{{settings.laundry_appconfig_email}}</h2>
+            <ion-avatar item-end>
+                <ion-icon name="md-mail" (click)="mail()"></ion-icon>
+            </ion-avatar>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <p>{{"reach_us" | translate}}</p>
+            <h2>{{settings.laundry_appconfig_address}}</h2>
+            <ion-avatar item-end *ngIf="settings && settings.laundry_appconfig_address && settings.laundry_appconfig_address.length">
+                <ion-icon name="md-navigate" (click)="navigate()"></ion-icon>
+            </ion-avatar>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<!--
+ <div *ngIf="settings && settings.laundry_appconfig_address && settings.laundry_appconfig_address.length" class="map">
+        <ion-icon name="md-navigate" (click)="navigate()"></ion-icon>
+         <img src="assets/imgs/map-img.png"> 
+    </div>-->

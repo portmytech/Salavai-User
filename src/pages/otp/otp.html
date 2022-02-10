@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title text-center>{{'verification' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding-top padding-left padding-right>
+
+    <div class="logo_box animate__animated animate__zoomIn" style="--animate-duration: .3s;">
+        <img src="assets/imgs/logo.png">
+    </div>
+
+    <div class="form">
+        <div id="recaptcha-container"></div>
+        <p *ngIf="username" text-center class="animate__animated animate__fadeInUp" style="--animate-duration: .35s;">
+            {{'otp_text' | translate}} <br>{{'sent' | translate }}
+            <br>+{{username}}
+        </p>
+        <ion-list no-lines class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+            <ion-item>
+                <!--				<ion-label>{{'otp' | translate}}</ion-label>-->
+                <ion-input type="number" text-center placeholder="{{'enter_otp' | translate}}" [(ngModel)]="otp"></ion-input>
+            </ion-item>
+
+            <button ion-button block class="bg-thime btn-round btn-text" (click)="verify()">
+                {{'verify' | translate}}
+            </button>
+        </ion-list>
+        <div class="redend_box d-flex animate__animated animate__fadeInUp" style="--animate-duration: .45s;">
+            <button ion-button clear item-start [disabled]="!resendCode" (click)="sendOTP()"> {{'resend' | translate}}</button>
+            <h2 class="end">
+                <ng-container *ngIf="minutes==0; else minuteTemplate">
+                    00
+                </ng-container>
+                <ng-template #minuteTemplate>
+                    {{minutes}}
+                </ng-template>:
+                <ng-container *ngIf="seconds==0; else secondTemplate">
+                    00
+                </ng-container>
+                <ng-template #secondTemplate>
+                    {{seconds}}
+                </ng-template> {{'min_left' | translate}}
+            </h2>
+        </div>
+    </div>
+</ion-content>

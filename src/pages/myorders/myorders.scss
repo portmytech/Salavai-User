@@ -1,0 +1,105 @@
+page-myorders {
+  .list {
+    margin-top: 8px;
+
+    .item {
+      padding: 15px 15px;
+      margin-bottom: 5px;
+
+      ion-avatar {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        margin-right: 15px;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 0;
+        }
+      }
+
+      .item-inner {
+        padding: 0;
+        margin: 0;
+
+        .label {
+          margin: 0;
+
+          h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e2e2e;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 0;
+            padding-bottom: 2px;
+
+            span {
+              font-weight: 600;
+            }
+
+            small {
+              font-size: 1.3rem;
+              font-weight: 500;
+              color: darken($text-dark, 100%);
+              min-width: 50px;
+            }
+          }
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #18c2ef;
+
+        small {
+          font-size: 0.9rem;
+          font-weight: 400;
+          color: $text-light;
+          display: block;
+          margin-left: auto;
+          min-width: 80px;
+        }
+      }
+
+      ion-note {
+        font-size: 0.95rem;
+        color: $text-light;
+        margin-top: -20px;
+        text-align: right;
+      }
+    }
+  }
+
+  .empty-view {
+    width: 200px;
+    margin: auto;
+    height: 200px;
+    top: 10%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+
+    img {
+      width: 100px;
+      margin: auto;
+    }
+
+    span {
+      display: block;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 50px;
+
+      span {
+        display: unset !important;
+      }
+    }
+  }
+}

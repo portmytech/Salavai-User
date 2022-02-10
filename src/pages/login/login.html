@@ -1,0 +1,62 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"signin_now" | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<!--    <img src="assets/imgs/logo.png" class="logo">-->
+	<ion-list no-lines class="form">
+
+		<ion-item class="animate__animated animate__fadeInUp">
+			<ion-icon name="md-globe" item-start></ion-icon>
+			<ion-label floating>{{"select_country" | translate}}</ion-label>
+			<ion-select [(ngModel)]="countryCode" multiple="false" class="text-thime"
+				cancelText="{{'cancel' | translate}}" okText="{{'okay' | translate}}" (ionChange)="changeHint()">
+				<ion-option [value]="country.callingCodes[0]" *ngFor="let country of countries">{{country.name}}
+				</ion-option>
+			</ion-select>
+		</ion-item>
+		<ion-item class="animate__animated animate__fadeInUp">
+			<ion-icon name="md-phone-portrait" item-start></ion-icon>
+			<ion-label floating>{{phone_hint}}</ion-label>
+			<ion-input type="tel" [(ngModel)]="credentials.username">
+			</ion-input>
+		</ion-item>
+		<ion-item class="animate__animated animate__fadeInUp">
+			<ion-icon name="md-lock" item-start></ion-icon>
+			<ion-label floating>{{"password" | translate}}</ion-label>
+			<ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
+			<h5 item-end (click)="passwordPage()">{{"forgot" | translate}}</h5>
+		</ion-item>
+	</ion-list>
+	<button ion-button block class="animate__animated animate__fadeInUp"  style="--animate-duration: .3s !important;"  (click)="signIn()">{{"login" | translate}}</button>
+	<p text-center class="animate__animated animate__fadeInUp"  style="--animate-duration: .35s !important;">{{"or_continue_with" | translate}}</p>
+	<ion-grid class="animate__animated animate__fadeInUp"  style="--animate-duration: .4s !important;">
+		<ion-row style="margin: 0 -5px;">
+			<ion-col col-6>
+				<button ion-button icon-left full class="btn-social btn-facebook" (click)="loginFB()">
+					<ion-icon class="icon">
+						<img src="assets/imgs/fb.png">
+					</ion-icon>
+					<span>{{"Facebook" | translate}}</span>
+				</button>
+			</ion-col>
+			<ion-col col-6>
+				<button ion-button full icon-left class="btn-social btn-google" (click)="loginGoogle()">
+					<ion-icon class="icon">
+						<img src="assets/imgs/google.png">
+					</ion-icon> 
+					<span>{{"Google" | translate}}</span>
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+
+<ion-footer no-border padding-left padding-right>
+	<div class="not_registered">
+		<p text-center class="animate__animated animate__fadeInUp"  style="--animate-duration: .4s !important;">{{"not_registered" | translate}}</p>
+		<button class="animate__animated animate__fadeInUp" ion-button outline block (click)="signupPage()"  style="--animate-duration: .45s !important;">{{"register" | translate}}</button>
+	</div>
+</ion-footer>

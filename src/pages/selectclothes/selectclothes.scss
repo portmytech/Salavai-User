@@ -1,0 +1,287 @@
+page-selectclothes {
+    .scroll-content {
+        margin-top: 95px !important;
+    }
+
+    .segment {
+        border: none;
+        background: $white-color !important;
+
+        .segment-button {
+            background-color: transparent !important;
+            border: none !important;
+            color: darken($text-dark, 0%) !important;
+            position: relative;
+            border: none !important;
+            min-width: 50px !important;
+            text-transform: unset;
+            font-size: 1.55rem;
+            font-weight: 500;
+            opacity: 1;
+
+            &::after { 
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 0;
+                height: 0;
+                background: $theme-color;
+                transition: all 0.3s;
+            }
+
+            &.segment-activated {
+                color: $text-theme !important;
+
+                &::after {
+                    width: 50px;
+                    height: 3px;
+                    transition: all 0.3s;
+                }
+            }
+
+            ion-badge {
+                font-size: 0.85rem;
+                position: absolute;
+                width: 16px;
+                padding: 0px;
+                height: 16px;
+                border-radius: 50%;
+                line-height: 16px;
+                text-align: center;
+                top: 0;
+                right: 0;
+                font-weight: 500;
+
+                &.d-none {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .cloth-list {
+
+        //        margin-bottom: 60px;
+        .list {
+            .item {
+                margin-bottom: 3px;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                padding: 6px 15px;
+
+                ion-avatar {
+                    width: 60px;
+                    height: 60px;
+                    position: relative;
+                    display: block;
+                    margin: 0;
+                    margin-right: 15px;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: -50%;
+                        right: -50%;
+                        margin: auto;
+                        min-height: 100%;
+                        min-width: 100%;
+                        border-radius: 0;
+                    }
+                }
+
+                .item-inner {
+                    align-items: center;
+                    padding: 0;
+
+                    .input-wrapper {
+                        display: block;
+                    }
+                }
+
+                .label {
+                    white-space: normal;
+
+                    position: relative;
+                    margin: 0;
+                    color: $black;
+                    padding-top: 5px;
+
+                    h3 {
+                        font-size: 1.65rem;
+                        font-weight: 600;
+                    }
+                }
+
+                .select {
+                    padding: 0;
+                    min-width: 90px;
+                    // max-width: 78px;
+                    max-width: unset;
+                    border: none;
+                    margin: 0;
+                    width: 100%;
+
+                    .select-icon {
+                        display: none;
+                    }
+
+                    .select-text {
+                        color: $text-muted;
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        text-overflow: unset;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .item-cover {
+                        width: auto;
+                        height: auto;
+                    }
+                }
+
+                ion-note {
+                    color: $text-dark;
+                    margin: 0;
+                    text-align: center;
+                    color: $theme-color;
+                    border: 1px solid $theme-color;
+                    border-radius: 3px;
+                    min-width: 95px;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    height: 33px;
+                    line-height: 33px;
+                    padding: 0 5px;
+
+                    &.modify_cart {
+                        background: $theme-color;
+                        color: $white;
+                        font-weight: 500;
+                    }
+
+                    &.price {
+                        width: 50px;
+                    }
+
+                    ion-icon {
+                        font-size: 2.1rem;
+                        color: $text-theme;
+                        position: relative;
+                        top: 1px;
+                    }
+
+                    span {
+                        font-size: 1.2rem;
+                        text-align: center;
+                        width: 35px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    ion-toolbar {
+        .toolbar-background {
+            border: none !important;
+        }
+    }
+
+    .fixed-bootom {
+        position: unset !important;
+        bottom: 0;
+        background-color: $bg-theme;
+        color: $white;
+        width: 100%;
+        padding: 1rem;
+        height: auto;
+
+        .row {
+            display: flex;
+            align-items: center;
+
+            .cost {
+                font-weight: 400;
+                font-size: 1.6rem;
+                //border-right: 1px solid #fff;
+                //min-width: 125px;
+            }
+
+            .small {
+                font-size: 1.2rem;
+                padding-left: 10px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 300;
+            }
+
+            .next {
+                font-weight: 400;
+                text-align: right;
+                position: relative;
+                font-size: 1.85rem;
+
+                ion-icon {
+                    margin-left: 7px;
+                    font-size: 2rem;
+                    position: relative;
+                    top: 3px;
+                }
+            }
+        }
+    }
+
+    .select-alert {
+        .alert-title {
+            font-size: 1.5rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-weight: 600;
+            color: $text-theme;
+        }
+
+        .alert-radio-label {
+            font-size: 1.5rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-weight: 600;
+            display: flex;
+        }
+    }
+
+    ion-footer {
+        box-shadow: 0 -16px 100px #c0c0c069;
+
+        &::before,
+        &::after {
+            display: none;
+        }
+
+        ion-toolbar {
+            padding: 0 !important;
+            min-height: unset !important;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .fixed-bootom .row .next {
+            font-size: 1.5rem !important;
+        }
+    }
+}
+
+.empty-view {
+    img {
+        width: 123px;
+    }
+}

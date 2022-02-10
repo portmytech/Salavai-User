@@ -1,0 +1,56 @@
+page-contact {
+    .bg-light {
+        .list {
+            margin-bottom: 0 !important;
+            margin-top: 5px;
+
+            .item {
+              padding:20px;
+				margin-bottom: 5px;
+				.item-inner{
+					padding: 0;
+					ion-avatar{
+						margin: 0;
+					}
+					.label{
+						margin: 0;
+					}
+				}
+            }
+        }
+
+        ion-icon {
+            width: 45px;
+            height: 45px;
+            background-color: $bg-theme;
+            color: $white;
+            text-align: center;
+            line-height: 44px;
+            font-size: 2rem;
+            border-radius: 50%;
+        }
+    }
+
+    p {
+        font-size: 1.4rem !important;
+        color: $text-light !important;
+        margin-bottom: 8px !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+        font-weight: 500 !important;
+        color: $text-dark;
+    }
+
+    .map {
+        position: relative;
+
+        ion-icon {
+            position: absolute;
+            right: 16px;
+            top: -22px;
+        }
+    }
+
+}

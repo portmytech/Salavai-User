@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{"register" | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding-top padding-left padding-right>
+    <div class="profile_img center_img animate__animated animate__zoomIn" style="--animate-duration: .3s;" (click)="openAction1()">
+        <img *ngIf="imageUrl && imageUrl.length" [src]="imageUrl" class="crop_img">
+        <ion-icon *ngIf="!imageUrl || !imageUrl.length" class="zmdi zmdi-camera"></ion-icon>
+    </div>
+
+    <ion-list no-lines class="form">
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-person" item-start></ion-icon>
+            <ion-label floating>{{'address_name' | translate}}</ion-label>
+            <ion-input type="text" text-right [(ngModel)]="registerRequest.first_name"></ion-input>
+        </ion-item>
+        <!-- <ion-item class="animate__animated animate__fadeInUp">
+			<ion-icon name="md-person" item-start></ion-icon>
+			<ion-label floating>{{'address_last_name' | translate}}</ion-label>
+			<ion-input type="text" text-right placeholder="" [(ngModel)]="registerRequest.last_name"></ion-input>
+		</ion-item> -->
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-globe" item-start></ion-icon>
+            <ion-label floating>{{'address_country' | translate}}</ion-label>
+            <ion-select [(ngModel)]="countryCode" placeholder="" multiple="false" cancelText="{{'cancel' | translate}}" okText="{{'okay' | translate}}" (ionChange)="changeHint()">
+                <ion-option [value]="country.callingCodes[0]" *ngFor="let country of countries">{{country.name}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-phone-portrait" item-start></ion-icon>
+            <ion-label floating>{{phone_hint}}</ion-label>
+            <ion-input type="tel" text-right placeholder="" [(ngModel)]="registerRequest.username"></ion-input>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-mail" item-start></ion-icon>
+            <ion-label floating>{{'email' | translate}}</ion-label>
+            <ion-input type="email" text-right placeholder="" [(ngModel)]="registerRequest.email"></ion-input>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp">
+            <ion-icon name="md-lock" item-start></ion-icon>
+            <ion-label floating>{{'password' | translate}}</ion-label>
+            <ion-input type="password" text-right placeholder="" [(ngModel)]="registerRequest.password"></ion-input>
+        </ion-item>
+        <!-- <ion-item class="animate__animated animate__fadeInUp">
+			<ion-icon name="md-lock" item-start></ion-icon>
+			<ion-label floating>{{'c2_password' | translate}}</ion-label>
+			<ion-input type="password" text-right placeholder="" [(ngModel)]="registerRequestPasswordConfirm">
+			</ion-input>
+		</ion-item> -->
+    </ion-list>
+
+</ion-content>
+
+<ion-footer no-border padding-left padding-right class="animate__animated animate__fadeInUp" style="--animate-duration: .4s;">
+    <button ion-button block (click)="register()">{{"register" | translate}}</button>
+</ion-footer>

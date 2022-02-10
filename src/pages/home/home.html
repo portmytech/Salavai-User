@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{config.appName}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-slides *ngIf="banners && banners.length" pager autoplay="2000" loop="true" dir="ltr" (click)="offers()">
+        <ion-slide *ngFor="let slide of banners">
+            <img [src]="slide.img_src" class="slide-image" />
+        </ion-slide>
+    </ion-slides>
+
+    <p padding-left padding-right class="heading animate__animated animate__fadeInUp">{{"services" | translate}}</p>
+    <ion-scroll scrollX style="height:185px;white-space: nowrap;">
+        <div class="scroll-item animate__animated animate__zoomIn" *ngFor="let cat of categoriesAll" (click)="selectclothes(cat)">
+            <div class="item-box">
+                <div class="img_box center_img">
+                    <img *ngIf="cat.image != null" data-src="{{cat.image.src}}" class="crop_img">
+                    <img *ngIf="cat.image == null" src="assets/imgs/logo.png" class="crop_img">
+                </div>
+                <h5 [innerHTML]="cat.name"></h5>
+                <p [innerHTML]="cat.description"></p>
+            </div>
+        </div>
+    </ion-scroll>
+
+    <p *ngIf="!ordersLoading && !orders.length" padding-left padding-right class="heading animate__animated animate__fadeInUp" style="--animate-duration: .3s !important;">
+        {{"no_active_order" | translate}}
+    </p>
+    <p *ngIf="!ordersLoading && orders.length" padding-left padding-right class="heading animate__animated animate__fadeInUp">
+        {{"ur_active_order" | translate}} ({{orders.length}})<span (click)="myOrders()">
+            {{"all_orders"| translate}}
+        </span>
+    </p> 
+
+    <div *ngIf="orders && orders.length" padding-left padding-right class="order-list">
+        <ion-list no-lines>
+            <ion-item class="animate__animated animate__fadeInUp" *ngFor="let order of orders" (click)="orderDetail(order)">
+                <ion-avatar [ngSwitch]="order.status" item-start>
+                    <img src="assets/imgs/confirmed.png" *ngSwitchDefault>
+                    <img src="assets/imgs/inporcess.png" *ngSwitchCase="'processing'">
+                    <img src="assets/imgs/dispatched.png" *ngSwitchCase="'pickedup'">
+                    <img src="assets/imgs/delivered.png" *ngSwitchCase="'completed'">
+                </ion-avatar>
+                <h2>{{"order_n" | translate}}: {{order.id}}</h2>
+                <p>{{order.status_trans}}</p>
+                <ion-note item-end>
+                    <p [innerHTML]="order.total_html"></p>
+                    <small>{{order.date_created}}</small>
+                </ion-note>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="placeholder animate__animated animate__zoomIn" style="--animate-duration: .3s !important;" margin *ngIf="!user && !ordersLoading" (click)="login()">
+        <div class="icon-box">
+            <div class="box">
+                <ion-icon name="md-person-add"></ion-icon>
+            </div>
+        </div>
+        <div class="text-box">
+            <h3>
+                <span>{{"login_to_view_order" | translate}}</span>
+                <span></span>
+            </h3>
+        </div>
+    </div>
+    <div class="placeholder animate__animated animate__zoomIn" style="--animate-duration: .3s !important;" margin *ngIf="user && !ordersLoading && !orders.length" (click)="order()">
+        <div class="icon-box">
+            <div class="box">
+                <ion-icon name="md-add"></ion-icon>
+            </div>
+        </div>
+        <div class="text-box">
+            <h3>
+                <span>{{"empty_orders" | translate}}</span>
+                <span class="link">{{"order_now" | translate}}</span>
+            </h3>
+        </div>
+    </div>
+</ion-content>
+<div *ngIf="config.demoMode" class="buy-this-app-class animate__animated animate__zoomIn" style="--animate-duration: .3s !important;">
+    <button ion-button class="button-size" (click)="buyThisApp()" round>
+        <ion-icon name="md-cart" class="text-white"></ion-icon> &nbsp;
+        {{'buy_this_app' | translate}}
+    </button>
+</div>

@@ -1,0 +1,42 @@
+page-rate {
+    .status {
+        background-color: $white;
+        border-bottom: 5px solid $bg-light;
+        img {
+            width: 110px;
+            display: block;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+        p {
+            font-weight: 600;
+            color: $text-dark;
+            line-height: 1.5;
+        }
+    }
+    .rate {
+        background-color: $white;
+        p {
+            font-weight: 600;
+            color: $text-dark;
+            line-height: 1.5;
+            margin-bottom: 35px;
+        }
+        .stars {
+            font-size: 3.2rem;
+            margin-bottom: 45px;
+            color: $text-theme;
+            .ion-md-star-outline {
+                color: $text-light;
+            }
+        }
+        .text-input {
+            text-align: center;
+            border: none;
+            border-bottom: 1px solid $text-light;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+    }
+
+}

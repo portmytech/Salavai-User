@@ -1,0 +1,80 @@
+ page-login {
+ 	.header {
+ 		.toolbar-content {
+ 			position: absolute;
+ 			width: 100%;
+ 			left: 0;
+ 			right: 0;
+
+ 			.title {
+ 				.toolbar-title {
+ 					text-align: center !important;
+ 					display: block;
+ 				}
+ 			}
+
+ 		}
+ 	}
+ 	.logo {
+ 		width: 110px;
+ 		margin: auto;
+ 		margin-bottom: 20px;
+ 		margin-top: 20px;
+ 		display: block;
+ 	}
+
+ 	.button {
+ 		height: 50px;
+ 		font-weight: 400;
+ 	}
+
+ 	.form {
+ 		margin-bottom: 27px !important;
+ 	}
+
+ 	p {
+ 		padding-top: 14px;
+ 		font-size: 1.25rem;
+ 		font-weight: 500;
+ 		color: lighten($text-dark, 25%);
+ 		margin: 10px 0;
+ 	}
+
+ 	h3 {
+ 		margin-top: 30px;
+ 	}
+
+ 	.form {
+ 		margin-bottom: 0;
+
+ 		.item .item-inner {
+ 			//            margin-left: 0px !important;
+ 		}
+
+ 		.select-icon {
+
+ 			//            display: none;
+ 			.select-icon-inner {
+ 				color: $black;
+ 				display: none;
+ 			}
+ 		}
+ 	}
+
+ 	.footer {
+ 		padding-bottom: 8px;
+
+ 		p {
+ 			margin: 0;
+ 			margin-bottom: 21px;
+ 		}
+ 	}
+
+ 	.not_registered {
+ 		.button[block] {
+ 			font-weight: 500;
+ 			font-size: 1.57rem;
+ 			letter-spacing: 0;
+ 		}
+ 	}
+ }
