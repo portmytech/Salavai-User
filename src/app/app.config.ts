@@ -89,8 +89,6 @@ export const BaseAppConfig: AppConfig = {
     databaseURL: "https://indian-film-tv-a3727-default-rtdb.firebaseio.com",
     projectId: "indian-film-tv-a3727",
     storageBucket: "indian-film-tv-a3727.appspot.com",
-    messagingSenderId: "799007738070",
-    appId: "1:799007738070:web:d10705366a4f7491c36177",
-    measurementId: "G-VVKLX0SHB8"
+    messagingSenderId: "799007738070"
   }
 };

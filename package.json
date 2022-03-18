@@ -1,5 +1,5 @@
 {
-  "name": "Salavai",
+  "name": "salavai",
   "version": "1.0.0",
   "author": "Portmytech",
   "homepage": "http://portmytech.com/",
@@ -33,11 +33,11 @@
     "@ionic-native/crop": "^4.20.0",
     "@ionic-native/device": "^4.15.0",
     "@ionic-native/email-composer": "^4.18.0",
-    "@ionic-native/facebook": "^4.18.0",
+    "@ionic-native/facebook": "^4.20.0",
     "@ionic-native/file": "^4.19.0",
     "@ionic-native/geolocation": "^4.18.0",
     "@ionic-native/globalization": "^4.15.0",
-    "@ionic-native/google-plus": "^4.7.0",
+    "@ionic-native/google-plus": "^4.20.0",
     "@ionic-native/image-picker": "^4.20.0",
     "@ionic-native/in-app-browser": "4.12.2",
     "@ionic-native/network": "^4.18.0",
@@ -76,7 +76,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-promise-polyfill": "0.0.2",
     "es6-promise-plugin": "^4.2.2",
-    "firebase": "5.3.0",
+    "firebase": "^5.3.0",
     "font-awesome": "4.7.0",
     "ionic-angular": "3.9.2",
     "ionic-img-viewer": "^2.9.0",
@@ -107,9 +107,7 @@
       "onesignal-cordova-plugin": {},
       "cordova-plugin-globalization": {},
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "",
-        "WEB_CLIENT_ID": "",
-        "WEB_APPLICATION_CLIENT_ID": ""
+        "WEB_APPLICATION_CLIENT_ID": "799007738070-hkfujefi6tdl5gsj0usemc3mfiks1p1i.apps.googleusercontent.com"
       },
       "cordova-clipboard": {},
       "cordova-plugin-geolocation": {
@@ -117,8 +115,8 @@
       },
       "cordova-plugin-network-information": {},
       "cordova-plugin-facebook4": {
-        "APP_ID": "YourFBAppId",
-        "APP_NAME": "YourAppName"
+        "APP_ID": "1361901047596148",
+        "APP_NAME": "Salavai"
       },
       "cordova-plugin-firebase-lib": {},
       "cordova-plugin-file": {},
