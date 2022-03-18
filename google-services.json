@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "799007738070",
+    "firebase_url": "https://indian-film-tv-a3727-default-rtdb.firebaseio.com",
     "project_id": "indian-film-tv-a3727",
     "storage_bucket": "indian-film-tv-a3727.appspot.com"
   },
@@ -56,6 +57,14 @@
           "android_info": {
             "package_name": "com.pth.salavaidelivery",
             "certificate_hash": "d144691efa2e45f2994388778056190d42eb67bd"
+          }
+        },
+        {
+          "client_id": "799007738070-h096ec00vhva7e2m2pq1md14o56dck20.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pth.salavaidelivery",
+            "certificate_hash": "ad3bcbe61ae7a71fa00c15c68e6ea5613e584aae"
           }
         },
         {
