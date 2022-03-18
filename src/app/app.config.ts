@@ -83,12 +83,14 @@ export const BaseAppConfig: AppConfig = {
   }],
   demoMode: false,
   firebaseConfig: {
-    webApplicationId: "1:799007738070:web:d10705366a4f7491c36177",
+    webApplicationId: "799007738070-hkfujefi6tdl5gsj0usemc3mfiks1p1i.apps.googleusercontent.com",
     apiKey: "AIzaSyBQWDty_s9mC_6XBlKJowa3QpJhalfDGnU",
     authDomain: "indian-film-tv-a3727.firebaseapp.com",
-    databaseURL: "https://indian-film-tv-a3727-default-rtdb.firebaseio.com/",
+    databaseURL: "https://indian-film-tv-a3727-default-rtdb.firebaseio.com",
     projectId: "indian-film-tv-a3727",
     storageBucket: "indian-film-tv-a3727.appspot.com",
+    messagingSenderId: "799007738070",
+    appId: "1:799007738070:web:d10705366a4f7491c36177",
     measurementId: "G-VVKLX0SHB8"
   }
 };
